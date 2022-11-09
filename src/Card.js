@@ -9,7 +9,7 @@ const Card = (props) => {
                 src={photo}
                 // src={`https://robohash.org/${id}`}
                 alt="Nothing availabble"
-                width="300" height="300"
+                className="mw5"
             />
             <div>
                 <h2>{name}</h2>
