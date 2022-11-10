@@ -2,15 +2,22 @@ import React, {Component} from 'react';
 import './App.css';
 import CardList from './CardList';
 import SearchBox from './SearchBox';
-import { friends } from './friends';
+// import { friends } from './friends';
 
 class App extends Component {
     constructor() {
         super();
         this.state = {
-            friends: friends,
+            // friends: friends,
+            friends: [], // robofriends
             searchField: ''
         }
+    }
+
+    componentDidMount() { // robofriends
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response => response.json())
+        .then(users => this.setState({friends: users}));
     }
 
     onSearchChange = (event) => {
