@@ -27,22 +27,20 @@ class App extends Component {
     }
 
     render() {
-        const filteredFriends = this.state.friends.filter(friend => {
-            return (friend.name.toLowerCase().includes(this.state.searchField.toLowerCase()))
+        const { friends, searchField} = this.state;
+        const filteredFriends = friends.filter(friend => {
+            return (friend.name.toLowerCase().includes(searchField.toLowerCase()))
         });
-        if (this.state.friends.length === 0) {
-            return <h1>Loading</h1>
-        } else {
-            return (
-                <div className = "tc">
-                    <h1 className='f2'>My Friends</h1>
-                    <SearchBox searchChange={this.onSearchChange}/>
-                    <Scroll>
-                        <CardList friends={filteredFriends}/>
-                    </Scroll>
-                </div>
-            );
-        }
+        return !friends.length ?
+        <h1>Loading</h1> :
+        <div className = "tc">
+            <h1 className='f2'>My Friends</h1>
+            <SearchBox searchChange={this.onSearchChange}/>
+            <Scroll>
+                <CardList friends={filteredFriends}/>
+            </Scroll>
+        </div>
+        ;
     };
 }
 
