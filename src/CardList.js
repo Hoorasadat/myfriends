@@ -4,6 +4,9 @@ import Card from './Card';
 
 const CardList = (props) => {
     const { friends } = props;
+    // if (true) {
+    //     throw new Error('noooo');
+    // }
     const cardsArray = friends.map(friend => {
         return (
             <Card

@@ -4,6 +4,7 @@ import CardList from './CardList';
 import SearchBox from './SearchBox';
 import { friends } from './friends';
 import Scroll from './Scroll';
+import ErrorBoundry from './ErrorBoundry';
 
 class App extends Component {
     constructor() {
@@ -37,7 +38,9 @@ class App extends Component {
             <h1 className='f2'>My Friends</h1>
             <SearchBox searchChange={this.onSearchChange}/>
             <Scroll>
-                <CardList friends={filteredFriends}/>
+                <ErrorBoundry>
+                    <CardList friends={filteredFriends}/>
+                </ErrorBoundry>
             </Scroll>
         </div>
         ;
