@@ -3,6 +3,7 @@ import './App.css';
 import CardList from './CardList';
 import SearchBox from './SearchBox';
 // import { friends } from './friends';
+import Scroll from './Scroll';
 
 class App extends Component {
     constructor() {
@@ -33,7 +34,9 @@ class App extends Component {
             <div className = "tc">
                 <h1 className='f2'>My Friends</h1>
                 <SearchBox searchChange={this.onSearchChange}/>
-                <CardList friends={filteredFriends}/>
+                <Scroll>
+                    <CardList friends={filteredFriends}/>
+                </Scroll>
             </div>
         );
     };
