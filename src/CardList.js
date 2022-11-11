@@ -8,7 +8,7 @@ const CardList = (props) => {
         return (
             <Card
                 key={friend.id}
-                id={friend.id} // robofriends
+                // id={friend.id} // robofriends
                 name={friend.name}
                 phone={friend.phone}
                 email={friend.email}
